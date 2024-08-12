@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Tickets - MovieVista</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body class="bg-black text-white">
+
+    <!-- Main Content Wrapper (to blur) -->
+    <div id="main-content">
+        <!-- Top Bar: Title, Search Bar, Profile Icon -->
+        <header class="bg-black p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <!-- Logo and Title -->
+                <div class="flex items-center">
+                    <img src="Assets/logomain.png" alt="Logo" class="w-20 h-20 mr-3">
+                    <a href="index.html" class="text-3xl font-bold text-white">MovieVista</a>
+                </div>
+                <!-- Search Bar -->
+                <div class="relative w-1/2">
+                    <input id="search-bar" type="text" placeholder="Search for movies..." class="w-full p-3 rounded-md bg-opacity-50 bg-gray-800 text-white pl-10">
+                    <svg class="w-5 h-5 text-white absolute left-3 top-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M8.5 16.5A7.5 7.5 0 1116 8.5a7.5 7.5 0 01-7.5 7.5z" />
+                    </svg>
+                </div>
+                <!-- Profile Icon and Text -->
+                <div class="flex items-center cursor-pointer" id="profile-button">
+                    <img src="Assets/profile-icon.png" alt="Profile Icon" class="w-8 h-8 mr-2">
+                    <span class="text-white">Profile</span>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Navbar -->
+        <nav class="bg-black p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="font-bold text-red-500">Home</a></li> <!-- Active Page -->
+                    <li><a href="trending.html" class="text-white hover:text-red-500">Movies</a></li>
+                    <li><a href="booking.html" class="text-white hover:text-red-500">Bookings</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Trending Movies Carousel -->
+        <section class="p-4">
+            <div class="relative">
+                <!-- Left Button -->
+                <button class="carousel-nav left" id="carousel-left">&lt;</button>
+
+                <!-- Carousel -->
+                <div id="carousel" class="overflow-x-scroll flex space-x-4 scrollbar-hide carousel">
+                    <!-- Movie Image -->
+                    <img src="Assets/image1.jpg" alt="Trending Movie 1" class="w-[1240px] h-[297px] object-cover rounded-lg">
+                    <img src="Assets/image2.jpg" alt="Trending Movie 2" class="w-[1240px] h-[297px] object-cover rounded-lg">
+                    <img src="Assets/image3.jpg" alt="Trending Movie 3" class="w-[1240px] h-[297px] object-cover rounded-lg">
+                    <!-- Add more images as needed -->
+                </div>
+
+                <!-- Right Button -->
+                <button class="carousel-nav right" id="carousel-right">&gt;</button>
+            </div>
+        </section>
+
+        <!-- Recommended Section -->
+        <section class="p-4">
+            <div class="container mx-auto">
+                <h2 class="text-2xl mb-4 text-white">Recommended for You</h2>
+                <div class="recommended-container">
+                    <!-- Movie Card -->
+                    <div class="movie-card rounded-lg shadow-lg bg-black">
+                        <img src="Assets/movie1.jpg" alt="Recommended Movie" class="recommended-image rounded-t-md">
+                        <div class="p-4">
+                            <h3 class="movie-title mt-2 text-white">Deadpool & Wolverine</h3>
+                            <p class="movie-description mt-1 text-gray-400">Action/Adventure/Comedy</p>
+                        </div>
+                    </div>
+                    <div class="movie-card rounded-lg shadow-lg bg-black">
+                        <img src="Assets/movie2.jpg" alt="Recommended Movie" class="recommended-image rounded-t-md">
+                        <div class="p-4">
+                            <h3 class="movie-title mt-2 text-white">Despicable Me 4</h3>
+                            <p class="movie-description mt-1 text-gray-400">Action/Adventure/Animation/Comedy</p>
+                        </div>
+                    </div>
+                    <div class="movie-card rounded-lg shadow-lg bg-black">
+                        <img src="Assets/movie3.jpg" alt="Recommended Movie" class="recommended-image rounded-t-md">
+                        <div class="p-4">
+                            <h3 class="movie-title mt-2 text-white">Inside Out 2</h3>
+                            <p class="movie-description mt-1 text-gray-400">Animation/Comedy/Drama</p>
+                        </div>
+                    </div>
+                    <!-- Add more movie cards as needed -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- Footer -->
+        <footer class="bg-black py-4">
+            <div class="container mx-auto text-center flex items-center justify-center">
+                <div class="flex-grow h-px bg-gray-500"></div>
+                <div class="mx-4">
+                    <!-- Logo and Title -->
+                    <img src="Assets/logomain.png" alt="MovieHub Logo" class="inline-block w-16 h-16 mr-2">
+                </div>
+                <div class="flex-grow h-px bg-gray-500"></div>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="container mx-auto text-center mt-4">
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="Assets/facebook.png" alt="Facebook" class="w-6 h-6 social-icon">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="Assets/x.png" alt="Twitter" class="w-6 h-6 social-icon">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="Assets/insta.png" alt="Instagram" class="w-6 h-6 social-icon">
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="Assets/linked.png" alt="LinkedIn" class="w-6 h-6 social-icon">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright Text -->
+            <div class="container mx-auto text-center text-gray-500 mt-4" style="font-size: 11px;">
+                Copyright 2024 &copy; MovieVista. All rights reserved.
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Profile Menu -->
+    <div id="profile-menu" class="fixed right-0 top-0 w-72 bg-black h-full transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6">
+            <div class="flex items-center justify-between">
+                <h2 class="text-white text-2xl">Profile</h2>
+                <button id="close-profile-menu" class="text-white text-2xl">&times;</button>
+            </div>
+            <ul class="mt-6">
+                <li class="text-white py-2"><a href="profile.html">My Account</a></li>
+                <li class="text-white py-2"><a href="bookings.html">My Bookings</a></li>
+                <li class="text-white py-2"><a href="settings.html">Settings</a></li>
+                <li class="text-white py-2"><a href="logout.html">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Search Popup -->
+    <div id="search-popup" class="search-popup">
+        <!-- Close Button -->
+        <div class="close-search" id="close-search-popup">&times;</div>
+
+        <div class="w-full max-w-md mx-auto mt-10 relative">
+            <!-- Search Bar with Button -->
+            <input id="search-input-popup" type="text" placeholder="Search for movies..." class="w-full p-3 rounded-md bg-opacity-50 bg-gray-800 text-white pl-10">
+            <button id="search-button-popup" class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M8.5 16.5A7.5 7.5 0 1116 8.5a7.5 7.5 0 01-7.5 7.5z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="JS/script.js"></script>
+</body>
+</html>

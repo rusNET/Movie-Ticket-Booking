@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Movies</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add these styles to your CSS file or <style> section */
+        .logo {
+            width: 48px; /* Adjust width as needed */
+            height: 48px; /* Adjust height as needed */
+            margin-right: 12px; /* Space between logo and title */
+        }
+
+        /* Blur background when the menu is open */
+        .blurred {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+
+        /* Hide scrollbar for the carousel */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Add transition for smooth dragging */
+        .carousel {
+            scroll-behavior: smooth;
+            cursor: grab;
+            position: relative;
+        }
+
+        .carousel:active {
+            cursor: grabbing;
+        }
+
+        /* Change cursor to pointer on trending movie images */
+        .carousel img:hover {
+            cursor: pointer;
+        }
+
+        /* Navigation Buttons */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-nav.left {
+            left: 0;
+        }
+
+        .carousel-nav.right {
+            right: 0;
+        }
+
+        .carousel-nav:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Movie Card Styles */
+        .movie-card {
+            background-color: #1a1a1a; /* Dark background */
+            border-radius: 0.5rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .movie-title {
+            font-size: 1.25rem; /* Adjust as needed */
+            color: white;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            margin-bottom: 0.5rem;
+        }
+
+        .movie-description {
+            font-size: 0.875rem; /* Adjust as needed */
+            color: gray-400;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .social-icon {
+            filter: grayscale(100%) brightness(50%);
+            transition: filter 0.3s ease;
+        }
+
+        .social-icon:hover {
+            filter: grayscale(0%) brightness(150%);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Main Content Wrapper (to blur) -->
+    <div id="main-content">
+        <!-- Top Bar: Title, Search Bar, Profile Icon -->
+        <header class="bg-black p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <!-- Logo and Title -->
+                <div class="flex items-center">
+                    <img src="logomain.png" alt="Logo" class="logo">
+                    <a href="index.html" class="text-3xl font-bold text-white">MovieVista</a>
+                </div>
+                <!-- Search Bar -->
+                <div class="relative w-1/2">
+                    <input type="text" placeholder="Search for movies..." class="w-full p-3 rounded-md bg-opacity-50 bg-gray-800 text-white pl-10">
+                    <svg class="w-5 h-5 text-white absolute left-3 top-3 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M8.5 16.5A7.5 7.5 0 1116 8.5a7.5 7.5 0 01-7.5 7.5z" />
+                    </svg>
+                </div>
+                <!-- Profile Icon and Text -->
+                <div class="flex items-center cursor-pointer" id="profile-button">
+                    <img src="profile-icon.png" alt="Profile Icon" class="w-8 h-8 mr-2">
+                    <span class="text-white">Profile</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navbar -->
+        <nav class="bg-black p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="font-bold text-red-500">Home</a></li>
+                    <li><a href="trending.html" class="text-white hover:text-red-500">Movies</a></li>
+                    <li><a href="booking.html" class="text-white hover:text-red-500">Bookings</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Movie Cards -->
+        <main class="p-4">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Movie Card -->
+                    <div class="movie-card">
+                        <img src="movie-poster.jpg" alt="Movie Poster" class="w-full h-64 object-cover rounded-md">
+                        <h2 class="movie-title mt-4">Movie Title</h2>
+                        <p class="movie-description mt-2">Description of the movie goes here.</p>
+                        <a href="booking.html" class="block mt-4 bg-red-600 hover:bg-red-700 text-center py-2 rounded-md">Book Now</a>
+                    </div>
+                    <!-- Repeat Movie Cards -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-black py-4">
+            <div class="container mx-auto text-center flex items-center justify-center">
+                <div class="flex-grow h-px bg-gray-500"></div>
+                <div class="mx-4">
+                    <img src="logomain.png" alt="MovieVista Logo" class="w-16 h-16 mr-2">
+                </div>
+                <div class="flex-grow h-px bg-gray-500"></div>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="container mx-auto text-center mt-4">
+                <div class="flex justify-center space-x-6">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="facebook.png" alt="Facebook" class="w-6 h-6 social-icon">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="x.png" alt="Twitter" class="w-6 h-6 social-icon">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="insta.png" alt="Instagram" class="w-6 h-6 social-icon">
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="linked.png" alt="LinkedIn" class="w-6 h-6 social-icon">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright Text -->
+            <div class="container mx-auto text-center text-gray-500 mt-4" style="font-size: 11px;">
+                Copyright 2024 &copy; MovieVista. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <!-- Profile Menu -->
+    <div id="profile-menu" class="fixed right-0 top-0 w-72 bg-gray-800 h-full transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl">Profile Menu</h2>
+                <!-- Close Icon -->
+                <button id="close-menu" class="text-2xl font-bold text-white">&times;</button>
+            </div>
+            <ul>
+                <li class="mb-4"><a href="#" class="hover:text-red-500">Log In</a></li>
+                <li><a href="#" class="hover:text-red-500">Sign Up</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript for Toggle Menu -->
+    <script>
+        // Toggle Profile Menu
+        const profileButton = document.getElementById('profile-button');
+        const profileMenu = document.getElementById('profile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const mainContent = document.getElementById('main-content');
+
+        profileButton.addEventListener('click', () => {
+            profileMenu.classList.toggle('translate-x-full');
+            mainContent.classList.add('blurred');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            profileMenu.classList.add('translate-x-full');
+            mainContent.classList.remove('blurred');
+        });
+
+        // Carousel functionality
+        const carousel = document.getElementById('carousel');
+        const leftButton = document.getElementById('carousel-left');
+        const rightButton = document.getElementById('carousel-right');
+
+        leftButton.addEventListener('click', () => {
+            carousel.scrollBy({ left: -300, behavior: 'smooth' });
+        });
+
+        rightButton.addEventListener('click', () => {
+            carousel.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

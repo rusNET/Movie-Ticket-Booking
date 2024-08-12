@@ -1,0 +1,157 @@
+html {
+    font-size: 16px; /* 1rem = 16px */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+.overflow-x-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Add this to your CSS file or <style> section */
+.logo {
+    width: 48px; /* Adjust width as needed */
+    height: 48px; /* Adjust height as needed */
+    margin-right: 12px; /* Space between logo and title */
+}
+
+/* Blur background when the menu is open */
+.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+/* Hide scrollbar for the carousel */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Add transition for smooth dragging */
+.carousel {
+    scroll-behavior: smooth;
+    cursor: grab;
+    position: relative;
+}
+
+.carousel:active {
+    cursor: grabbing;
+}
+
+/* Change cursor to pointer on trending movie images */
+.carousel img:hover {
+    cursor: pointer;
+}
+
+/* Navigation Buttons */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-nav.left {
+    left: 0;
+}
+
+.carousel-nav.right {
+    right: 0;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Adjusting the movie card container to use flexbox */
+.recommended-container {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure cards don’t wrap */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    gap: 40px; /* Small gap between items */
+    padding: 0; /* Remove padding around the container */
+}
+
+.movie-card {
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 222px; /* Fixed width for cards */
+    margin: 0; /* Ensure no margin around cards */
+    padding: 0; /* Ensure no padding around cards */
+    border: none; /* Remove border if any */
+}
+
+.recommended-image {
+    width: 100%; /* Ensure image fits card width */
+    height: auto; /* Adjust height automatically */
+    object-fit: cover; /* Cover the card area without distortion */
+}
+
+.movie-title {
+    font-size: 1rem; /* Adjust as needed */
+    color: white;
+    overflow-wrap: break-word; /* Wrap long words */
+    word-break: break-word; /* Break long words if necessary */
+    margin-bottom: 0.5rem; /* Space below title */
+}
+
+.movie-description {
+    font-size: 0.875rem; /* Adjust as needed */
+    color: gray-400;
+    overflow-wrap: break-word; /* Wrap long words */
+    word-break: break-word; /* Break long words if necessary */
+}
+
+/* Social Media Icon Effects */
+.social-icon {
+    filter: grayscale(100%) brightness(50%);
+    transition: filter 0.3s ease;
+}
+
+.social-icon:hover {
+    filter: grayscale(0%) brightness(150%);
+}
+
+/* Search Popup Styles */
+.search-popup {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 100;
+}
+
+.search-popup.active {
+    transform: translateY(0);
+}
+
+/* Close Icon */
+.close-search {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
